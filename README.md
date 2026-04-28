@@ -22,7 +22,14 @@ After Sorting:
 ## Reflection Questions
 
 1. What is the time complexity of Merge Sort?
+   O(n log n) in all cases (best, average, and worst). The list is always divided in half (log n levels), and each level does O(n) work to merge.
+
 2. Why does Merge Sort work well with linked lists?
+   Linked lists don't support random access, so algorithms like Quick Sort that rely on index-based partitioning are inefficient. Merge Sort only needs to traverse nodes sequentially and rewire pointers, making splitting and merging natural operations. No extra array storage is needed for the merge step either — just pointer reassignment.
+
 3. Is Merge Sort stable? 
+   Yes. During the merge step, when two elements are equal we always take from the left half first (the `<=` condition), which preserves the original relative order of equal elements.
+
 4. What extra memory does Merge Sort require?
+   For arrays: O(n) extra space for the temporary arrays used during each merge step. For linked lists: O(log n) stack space for the recursion, but no extra node allocation is needed since merging only rewires existing pointers.
 
